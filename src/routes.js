@@ -4,6 +4,8 @@ import {
     App,
     Todo,
     NotFound,
+    Motions,
+    Transition
   } from 'containers';
 
 
@@ -15,7 +17,8 @@ export default () => {
     <Route path="/" component={App}>
       { /* Home (main) route */ }
       <IndexRoute component={Todo}/>
-
+      <Route path="motions" component={Motions} />
+      <Route path="transition" component={Transition} />
       { /* Catch all route */ }
       <Route path="*" component={NotFound} status={404} />
     </Route>

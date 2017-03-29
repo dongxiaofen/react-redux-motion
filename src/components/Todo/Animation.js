@@ -1,0 +1,84 @@
+import React, {PropTypes} from 'react';
+
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import './Animation.less';
+
+import { bounce } from 'react-animations';
+import Radium from 'radium';
+
+const styles = {
+  bounce: {
+    animationDuration: '.3s',
+    // animation: 'x .3s',
+    animationName: Radium.keyframes(bounce, 'bounce')
+  }
+};
+@Radium
+export default class Animation extends React.Component {
+  static propTypes = {
+    todo: PropTypes.object,
+    todoBoundAC: PropTypes.object,
+  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: ['hello', 'world', 'click', 'me'],
+      isAnimate: false
+    };
+  }
+  // shouldComponentUpdate(nextProps) {
+  //   return shallowEqual(this.props.todo.get('filter'), nextProps.todo.get('filter'), this.props.todo.get('todoList'), nextProps.todo.get('todoList'));
+  // }
+  handleRemove = (idx) => {
+    const newList = this.state.list;
+    newList.splice(idx, 1);
+    this.setState({
+      list: newList
+    });
+  }
+  handleAdd = () => {
+    // const newItems = this.state.items.concat([prompt('Enter some text')]);
+    // console.log('dddddddddddd');
+    const newItems = 'newItems';
+    const lists = this.state.list;
+    lists.push(newItems);
+    this.setState({list: lists});
+  }
+  createList = () => {
+    const output = [];
+    this.state.list.map((item, idx) => {
+      output.push(<div key={idx} onClick={this.handleRemove.bind(this, idx)}>{item}</div>);
+    });
+    return output;
+  }
+  handlePlay = () => {
+    this.setState({
+      isAnimate: true
+    });
+    setTimeout(() => {
+      this.setState({
+        isAnimate: false
+      });
+    }, 2000);
+  }
+  render() {
+    return (
+      <div style={{padding: '10px'}}>
+        <div>
+          <p>react 自带动画: react-addons-css-transition-group>ReactCSSTransitionGroup</p>
+          <button onClick={this.handleAdd}>Add Item</button>
+          <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+            {this.createList()}
+          </ReactCSSTransitionGroup>
+        </div>
+        <div>
+          <p>react-animations:</p>
+          <div style={this.state.isAnimate ? styles.bounce : null}>react-animations</div>
+          <button onClick={this.handlePlay}>play</button>
+        </div>
+      </div>
+    );
+  }
+}
+
+// export default Radium(Animation);

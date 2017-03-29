@@ -2,7 +2,21 @@ import * as ActionTypes from '../constants/constants';
 import {fromJS} from 'immutable';
 import __findIndex from 'lodash/findIndex';
 const initState = {
-  todoList: [],
+  // todoList: [],
+  todoList: [
+    // key is creation date
+    {key: 't1', data: {text: 'Board the plane', isDone: false}},
+    {key: 't2', data: {text: 'Sleep', isDone: false}},
+    {key: 't3', data: {text: 'Try to finish conference slides', isDone: false}},
+    {key: 't4', data: {text: 'Eat cheese and drink wine', isDone: false}},
+    {key: 't5', data: {text: 'Go around in Uber', isDone: false}},
+    {key: 't6', data: {text: 'Talk with conf attendees', isDone: false}},
+    {key: 't7', data: {text: 'Show Demo 1', isDone: false}},
+    {key: 't8', data: {text: 'Show Demo 2', isDone: false}},
+    {key: 't9', data: {text: 'Lament about the state of animation', isDone: false}},
+    {key: 't10', data: {text: 'Show Secret Demo', isDone: false}},
+    {key: 't11', data: {text: 'Go home', isDone: false}},
+  ],
   currentInput: '',
   filter: 'All'
 };

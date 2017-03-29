@@ -7,7 +7,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{width: '1200px', margin: '20px auto', fontSize: '14px'}}>
         {/* {this.props.children} */}
         {React.cloneElement(this.props.children, this.props)}
       </div>
