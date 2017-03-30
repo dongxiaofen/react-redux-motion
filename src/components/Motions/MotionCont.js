@@ -19,9 +19,9 @@ export default class MotionCont extends React.Component {
   render() {
     return (
       <div className={styles.motionWrap}>
-        {/* <h1>react-motion</h1>
+        <h1>react-motion</h1>
         <h2>安装:</h2>
-        <code>npm install --save react-motion</code> */}
+        <code>npm install --save react-motion</code>
         <API />
         <div>
           <h2>demo: </h2>
