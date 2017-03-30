@@ -126,6 +126,7 @@ export default class MotionCont extends React.Component {
       <div>
         <h2>API:</h2>
         {this.createApiList()}
+        <p style={{paddingTop: '20px'}}>官方地址：　<a href="https://github.com/chenglou/react-motion">https://github.com/chenglou/react-motion</a></p>
       </div>
     );
   }
