@@ -1,4 +1,4 @@
-＃＃ React Redux + react-motion Example
+＃ React Redux + react-motion Example
 
 react-motion: 结合react使用的动画
 
