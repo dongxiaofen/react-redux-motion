@@ -44,6 +44,7 @@ export default class Html extends Component {
                 rel="stylesheet" type="text/css" charSet="UTF-8"/>
           <link href="/vendors/css/antd.css" media="screen, projection"
                 rel="stylesheet" type="text/css" charSet="UTF-8"/>
+          <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
           {/* (will be present only in development mode) */}
           {/* outputs a <style/> tag with all bootstrap styles + App.scss + it could be CurrentPage.scss. */}
           {/* can smoothen the initial style flash (flicker) on page load in development mode. */}

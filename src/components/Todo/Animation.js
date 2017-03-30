@@ -37,8 +37,6 @@ export default class Animation extends React.Component {
     });
   }
   handleAdd = () => {
-    // const newItems = this.state.items.concat([prompt('Enter some text')]);
-    // console.log('dddddddddddd');
     const newItems = 'newItems';
     const lists = this.state.list;
     lists.push(newItems);
@@ -47,7 +45,7 @@ export default class Animation extends React.Component {
   createList = () => {
     const output = [];
     this.state.list.map((item, idx) => {
-      output.push(<div key={idx} onClick={this.handleRemove.bind(this, idx)}>{item}</div>);
+      output.push(<div key={idx} onClick={this.handleRemove.bind(this, idx)} style={{cursor: 'pointer'}}>{item}</div>);
     });
     return output;
   }
@@ -65,16 +63,18 @@ export default class Animation extends React.Component {
     return (
       <div style={{padding: '10px'}}>
         <div>
-          <p>react 自带动画: react-addons-css-transition-group>ReactCSSTransitionGroup</p>
-          <button onClick={this.handleAdd}>Add Item</button>
+          <h2>react-addons-css-transition-group</h2>
+          <p style={{margin: '20px 0'}}>react 自带动画: react-addons-css-transition-group>ReactCSSTransitionGroup</p>
+          <button onClick={this.handleAdd} style={{padding: '0 5px', border: '1px solid #ddd', marginBottom: '20px'}}>Add Item</button>
           <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
             {this.createList()}
           </ReactCSSTransitionGroup>
         </div>
-        <div>
-          <p>react-animations:</p>
+        <div style={{paddingTop: '40px'}}>
+          <h2>react-animations:</h2>
+          <p style={{padding: '20px 0'}}>demo: </p>
           <div style={this.state.isAnimate ? styles.bounce : null}>react-animations</div>
-          <button onClick={this.handlePlay}>play</button>
+          <button onClick={this.handlePlay} style={{padding: '0 5px', border: '1px solid #ddd', marginTop: '20px'}}>play</button>
         </div>
       </div>
     );

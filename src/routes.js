@@ -5,7 +5,8 @@ import {
     Todo,
     NotFound,
     Motions,
-    Transition
+    Transition,
+    TweenMax
   } from 'containers';
 
 
@@ -19,6 +20,7 @@ export default () => {
       <IndexRoute component={Todo}/>
       <Route path="motions" component={Motions} />
       <Route path="transition" component={Transition} />
+      <Route path="tweenmax" component={TweenMax} />
       { /* Catch all route */ }
       <Route path="*" component={NotFound} status={404} />
     </Route>

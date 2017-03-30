@@ -21,7 +21,7 @@ export default class Todo extends Component {
   render() {
     return (
       <StyleRoot>
-        <section className="todoapp">
+        <section className="todoapp" style={{width: '500px', margin: '130px auto 0 auto'}}>
           <Animation />
           {/* <Header />
           <List/>
