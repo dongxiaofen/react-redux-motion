@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+// import { Row, Col } from 'antd';
 import {StaggeredMotion, spring, presets} from 'react-motion';
 import __range from 'lodash/range';
 import Styles from './MotionCont.less';
@@ -45,20 +45,15 @@ export default class StaggeredDemo extends React.Component {
   render() {
     return (
       <div className={Styles.boxwrap}>
-        <Row>
-          <Col span={4}><span>StaggeredMotion:</span></Col>
-          <Col span={20}>
-            <StaggeredMotion defaultStyles={__range(3).map(() => ({x: 0, y: 0}))} styles={this.getStyles}>
-              {styles => (
-                <div className={Styles.staggerdbox} onMouseUp={this.handleMouseUp} onMouseMove={this.handleMouseMove}>
-                  {styles.map((item, idx) => {
-                    return (<div className={Styles.staggerCont} key={idx} style={{transform: `translate3d(${item.x}px, ${item.y}px, 0)`, zIndex: styles.length - 1, }} onMouseDown={this.handleMouseDown}>{idx}</div>);
-                  })}
-                </div>
-              )}
-            </StaggeredMotion>
-          </Col>
-        </Row>
+        <StaggeredMotion defaultStyles={__range(3).map(() => ({x: 0, y: 0}))} styles={this.getStyles}>
+          {styles => (
+            <div className={Styles.staggerdbox} onMouseUp={this.handleMouseUp} onMouseMove={this.handleMouseMove}>
+              {styles.map((item, idx) => {
+                return (<div className={Styles.staggerCont} key={idx} style={{transform: `translate3d(${item.x}px, ${item.y}px, 0)`, zIndex: styles.length - 1, }} onMouseDown={this.handleMouseDown}>{idx}</div>);
+              })}
+            </div>
+          )}
+        </StaggeredMotion>
       </div>
     );
   }

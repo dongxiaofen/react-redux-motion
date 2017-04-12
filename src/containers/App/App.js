@@ -12,7 +12,7 @@ export default class App extends Component {
         <div>
           <span style={{marginRight: '20px'}}><Link to="/">react-animations</Link></span>
           <span style={{marginRight: '20px'}}><Link to="/motions">react-motion</Link></span>
-          <span><Link to="/tweenmax">TweenMax</Link></span>
+          <span><Link to="/tweenmax">GSAP</Link></span>
         </div>
         {React.cloneElement(this.props.children, this.props)}
       </div>

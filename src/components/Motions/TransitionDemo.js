@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Row, Col } from 'antd';
 import {TransitionMotion, spring, presets} from 'react-motion';
 import Styles from './MotionCont.less';
 export default class TransitionDemo extends React.Component {
@@ -11,7 +10,7 @@ export default class TransitionDemo extends React.Component {
         {key: 't2', data: {text: 'Sleep', isDone: false}},
         {key: 't3', data: {text: 'Try to finish conference slides', isDone: false}},
         {key: 't4', data: {text: 'Eat cheese and drink wine', isDone: false}},
-        {key: 't5', data: {text: 'Go around in Uber', isDone: false}},
+        {key: 't5', data: {text: 'Go around in Didi', isDone: false}},
         {key: 't6', data: {text: 'Talk with conf attendees', isDone: false}},
         {key: 't7', data: {text: 'Show Demo 1', isDone: false}},
         {key: 't8', data: {text: 'Show Demo 2', isDone: false}},
@@ -48,6 +47,7 @@ export default class TransitionDemo extends React.Component {
     this.setState({
       value: event.target.value
     });
+    console.log('dddd');
   }
   handleSubmit = (evt) => {
     evt.preventDefault();
@@ -55,8 +55,11 @@ export default class TransitionDemo extends React.Component {
       key: 't' + Date.now(),
       data: {text: this.state.value, isDone: false}
     };
+    const arrTodos = this.state.todos;
+    arrTodos.push(newItem);
     this.setState({
-      todos: newItem.concat(this.state.todos)
+      // todos: newItem.concat(this.state.todos)
+      todos: arrTodos
     });
   }
   handleSelect = (selected) => {
@@ -97,6 +100,7 @@ export default class TransitionDemo extends React.Component {
   }
   render() {
     const {todos, value} = this.state;
+    console.log(todos, 'todos');
     const itemsLeft = todos.filter(({data: {isDone}}) => !isDone).length;
     return (
       <div className={Styles.boxwrap}>
