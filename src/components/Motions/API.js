@@ -1,8 +1,9 @@
 import React from 'react';
 import {Motion, spring} from 'react-motion';
+import tragger from './tragger.png';
 
 import styles from './API.less';
-const height = [100, 310, 130, 100, 180];
+const height = [100, 310, 420, 100, 180];
 export default class MotionCont extends React.Component {
   constructor(props) {
     super(props);
@@ -94,6 +95,7 @@ export default class MotionCont extends React.Component {
   staggeredMotionCont = () => {
     return (
       <div className={styles.detailApi}>
+        <img src={tragger} alt=""/>
         <p>StaggerdMotion ，该动画组件内部有一个或多个直接子组件，多个子组件之间的动画效果由关联性</p>
         <p>参数与Motion类似，区别为Motion为defaultStyle，style，　而staggeredMotionCont为defaultStyles，styles</p>
         <p>暂不支持onRest</p>

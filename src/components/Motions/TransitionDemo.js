@@ -100,7 +100,6 @@ export default class TransitionDemo extends React.Component {
   }
   render() {
     const {todos, value} = this.state;
-    console.log(todos, 'todos');
     const itemsLeft = todos.filter(({data: {isDone}}) => !isDone).length;
     return (
       <div className={Styles.boxwrap}>
