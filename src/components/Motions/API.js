@@ -1,9 +1,13 @@
 import React from 'react';
 import {Motion, spring} from 'react-motion';
 import tragger from './tragger.png';
+import transition from './transition.png';
+import MotionDemo from './MotionDemo.js';
+import StaggeredDemo from './StaggeredDemo.js';
+import TransitionDemo0 from './TransitionDemo_0.js';
 
 import styles from './API.less';
-const height = [100, 310, 420, 100, 180];
+const height = [100, 410, 920, 1050, 180];
 export default class MotionCont extends React.Component {
   constructor(props) {
     super(props);
@@ -89,6 +93,7 @@ export default class MotionCont extends React.Component {
       <p>style: 必选参数，指定动画完成的目标值，并设定动画的变化类型，实际上是一种数据驱动的形式</p>
       <p>onRest: 可选参数，在动画完成后调用</p>
       <p>children: (interpolatedStyle: PlainStyle) => ReactElement ，必选函数，接收一个从初始值到目标值中间的值，这个值不断变化，用于渲染子组件的样式</p>
+      <MotionDemo />
       </div>
     );
   }
@@ -96,17 +101,28 @@ export default class MotionCont extends React.Component {
     return (
       <div className={styles.detailApi}>
         <img src={tragger} alt=""/>
-        <p>StaggerdMotion ，该动画组件内部有一个或多个直接子组件，多个子组件之间的动画效果由关联性</p>
-        <p>参数与Motion类似，区别为Motion为defaultStyle，style，　而staggeredMotionCont为defaultStyles，styles</p>
+        <p>StaggerdMotion: 该动画组件内部有一个或多个直接子组件，多个子组件之间的动画效果由关联性</p>
+        <p>defaultStyles: array(可选参数)</p>
+        <p>styles: function(必选函数)</p>
+        <p>children: function(必选函数)</p>
+        <p>区别Motion为defaultStyle，style，　而staggeredMotionCont为defaultStyles，styles</p>
         <p>暂不支持onRest</p>
+        <StaggeredDemo />
       </div>
     );
   }
   transitionMotionCont = () => {
     return (
       <div className={styles.detailApi}>
-        <p>TransitionMotion ，该动画组件内部的一个或多个组件可以卸载或挂载，提供 Enter 和 Leave 动画效果</p>
-        <p>参数与Motion类似，区别为Motion为defaultStyle，style，　而staggeredMotionCont为defaultStyles，styles</p>
+        <img src={transition} alt=""/>
+        <p>TransitionMotion ，常用于一个或多个组件的卸载或挂载</p>
+        <p>styles: array(必选参数)， [&#123; key: 'string', data?: any, style: Style &#125;}]</p>
+        <p>defaultStyles: array(可选参数)</p>
+        <p>children: function(必选函数)</p>
+        <p>提供 Enter 和 Leave 动画效果，　包括willLeave，　didLeave，　willEnter</p>
+        <p>区别Motion为defaultStyle，style，　而TransitionMotion为defaultStyles，styles</p>
+        <p>暂不支持onRest</p>
+        <TransitionDemo0 />
       </div>
     );
   }
