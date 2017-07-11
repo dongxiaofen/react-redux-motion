@@ -4,6 +4,8 @@
 * npm install
 * npm run dev
 
+node版本： 5.10.1
+
 ##### react-motion: 结合react使用的动画
 
 react-motion地址：　[https://github.com/chenglou/react-motion](https://github.com/chenglou/react-motion)
