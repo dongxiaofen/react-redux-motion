@@ -6,7 +6,8 @@ import {
     NotFound,
     Motions,
     Transition,
-    TweenMax
+    TweenMax,
+    Rxjs
   } from 'containers';
 
 
@@ -21,6 +22,7 @@ export default () => {
       <Route path="motions" component={Motions} />
       <Route path="transition" component={Transition} />
       <Route path="tweenmax" component={TweenMax} />
+      <Route path="rxjs" component={Rxjs} />
       { /* Catch all route */ }
       <Route path="*" component={NotFound} status={404} />
     </Route>
