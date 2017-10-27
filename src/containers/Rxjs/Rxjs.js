@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 // import { TweenMaxDemo } from 'components';
 import Rx from 'rxjs/Rx';
+import styles from './Rxjs.less';
 
-export default class TweenMax extends Component {
+export default class Rxjs extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   componentDidMount() {
     // eg1:
-    const weight = Rx.Observable.of(70, 72, 76, 79, 75, 80);
-    const height = Rx.Observable.of(3, 4, 5);
-    const bmi = Rx.Observable.combineLatest(weight, height, (wei, hei) => {
-      return wei / (hei * hei);
-    });
-    bmi.subscribe(val => console.log('bmi is ' + val));
+    // const weight = Rx.Observable.of(70, 72, 76, 79, 75, 80);
+    // const height = Rx.Observable.of(3, 4, 5);
+    // const bmi = Rx.Observable.combineLatest(weight, height, (wei, hei) => {
+    //   return wei / (hei * hei);
+    // });
+    // bmi.subscribe(val => console.log('bmi is ' + val));
 
     // // eg2
     // const	timer =	Rx.Observable.interval(1000).take(4);
@@ -75,14 +76,29 @@ export default class TweenMax extends Component {
     // const	merged = Rx.Observable.merge(timer1, timer2, timer3, concurrent);
     // merged.subscribe(xxx => console.log(xxx));
 
-    // eg9
+    // eg9 --实现拖拽
+    const dragDom = document.getElementById('drag');
+    const body = document.body;
+    const mouseDown = Rx.Observable.fromEvent(dragDom, 'mousedown');
+    const mouseUp = Rx.Observable.fromEvent(body, 'mouseup');
+    const mouseMove = Rx.Observable.fromEvent(body, 'mousemove');
+    mouseDown.map(() => mouseMove.takeUntil(mouseUp))
+              .concatAll()
+              .map(event => ({clx: event.clientX, cly: event.clientY}))
+              .subscribe(pos => {
+                dragDom.style.left = pos.clx + 'px';
+                dragDom.style.top = pos.cly + 'px';
+              });
   }
   render() {
     return (
       // <div style={{width: '1200px', margin: '0 auto'}}>
       //   <TweenMaxDemo />
       // </div>
-      <div>这是Rxjs的测试, 打开控制台</div>
+      <div className={styles['drag-box']}>
+        <p>这是Rxjs的测试, 打开控制台</p>
+        <div className={styles.drag} id="drag">拖拽物</div>
+      </div>
     );
   }
 }
