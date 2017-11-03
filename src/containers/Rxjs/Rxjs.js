@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-// import { TweenMaxDemo } from 'components';
 import Rx from 'rxjs/Rx';
 import styles from './Rxjs.less';
+import { Link } from 'react-router';
 
 export default class Rxjs extends Component {
   constructor(props) {
@@ -10,12 +10,12 @@ export default class Rxjs extends Component {
   }
   componentDidMount() {
     // eg1:
-    // const weight = Rx.Observable.of(70, 72, 76, 79, 75, 80);
-    // const height = Rx.Observable.of(3, 4, 5);
-    // const bmi = Rx.Observable.combineLatest(weight, height, (wei, hei) => {
-    //   return wei / (hei * hei);
-    // });
-    // bmi.subscribe(val => console.log('bmi is ' + val));
+    const weight = Rx.Observable.of(70, 72, 76, 79, 75, 80);
+    const height = Rx.Observable.of(3, 4, 5);
+    const bmi = Rx.Observable.combineLatest(weight, height, (wei, hei) => {
+      return wei / (hei * hei);
+    });
+    bmi.subscribe(val => console.log('bmi is ' + val));
 
     // // eg2
     // const	timer =	Rx.Observable.interval(1000).take(4);
@@ -77,27 +77,26 @@ export default class Rxjs extends Component {
     // merged.subscribe(xxx => console.log(xxx));
 
     // eg9 --实现拖拽
-    const dragDom = document.getElementById('drag');
-    const body = document.body;
-    const mouseDown = Rx.Observable.fromEvent(dragDom, 'mousedown');
-    const mouseUp = Rx.Observable.fromEvent(body, 'mouseup');
-    const mouseMove = Rx.Observable.fromEvent(body, 'mousemove');
-    mouseDown.map(() => mouseMove.takeUntil(mouseUp))
-              .concatAll()
-              .map(event => ({clx: event.clientX, cly: event.clientY}))
-              .subscribe(pos => {
-                dragDom.style.left = pos.clx + 'px';
-                dragDom.style.top = pos.cly + 'px';
-              });
+    // const dragDom = document.getElementById('drag');
+    // const body = document.body;
+    // const mouseDown = Rx.Observable.fromEvent(dragDom, 'mousedown');
+    // const mouseUp = Rx.Observable.fromEvent(body, 'mouseup');
+    // const mouseMove = Rx.Observable.fromEvent(body, 'mousemove');
+    // mouseDown.map(() => mouseMove.takeUntil(mouseUp))
+    //         .concatAll()
+    //         .map(event => ({clx: event.clientX, cly: event.clientY}))
+    //         .subscribe(pos => {
+    //           dragDom.style.left = pos.clx + 'px';
+    //           dragDom.style.top = pos.cly + 'px';
+    //         });
   }
   render() {
     return (
-      // <div style={{width: '1200px', margin: '0 auto'}}>
-      //   <TweenMaxDemo />
-      // </div>
+
       <div className={styles['drag-box']}>
         <p>这是Rxjs的测试, 打开控制台</p>
-        <div className={styles.drag} id="drag">拖拽物</div>
+        {/* <div className={styles.drag} id="drag">拖拽物</div> */}
+        <Link to="/rxjs-example1">Rx:滚动固定＋拖拽</Link>
       </div>
     );
   }

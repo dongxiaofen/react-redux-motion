@@ -1,0 +1,26 @@
+.example-container {
+  padding-top: 20px;
+}
+.video-box {
+  position: relative;
+  height: 2000px;
+  .video {
+    position: absolute;
+    display: inline-block;
+    width: 500px;
+    height: 500px;
+    border: 1px solid #ddd;
+    text-align: center;
+    // padding-top: 200px;
+    font-weight: bold;
+    cursor: pointer;
+    &.video-fixed {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      // right: 10px;
+      width: 300px;
+      height: 300px;
+    }
+  }
+}

@@ -6,3 +6,4 @@ export MotionComp from './Todo/MotionComp';
 export MotionCont from './Motions/MotionCont';
 export TransitionDemo from './Motions/TransitionDemo';
 export TweenMaxDemo from './TweenMax/TweenMaxDemo';
+export RxExample1 from './Rx/example1';

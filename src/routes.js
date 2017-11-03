@@ -9,6 +9,9 @@ import {
     TweenMax,
     Rxjs
   } from 'containers';
+import {
+  RxExample1,
+} from 'components';
 
 
 export default () => {
@@ -23,6 +26,7 @@ export default () => {
       <Route path="transition" component={Transition} />
       <Route path="tweenmax" component={TweenMax} />
       <Route path="rxjs" component={Rxjs} />
+      <Route path="rxjs-example1" component={RxExample1} />
       { /* Catch all route */ }
       <Route path="*" component={NotFound} status={404} />
     </Route>
